@@ -12,10 +12,10 @@ from typing import List
 import requests
 from pydub import AudioSegment
 
-from _errors import RiffusionGenerationError, NoAccounts
-from _types import RiffusionAccount, RiffusionTrack, RiffusionTransformType, RiffusionModels
-from logs import Logs, Color
-from s_utils import random_string
+from ._errors import RiffusionGenerationError, NoAccounts
+from ._types import RiffusionAccount, RiffusionTrack, RiffusionTransformType, RiffusionModels
+from .logs import Logs, Color
+from .s_utils import random_string
 
 logger = Logs(warnings=True)
 
