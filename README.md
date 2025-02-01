@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Badim41/riffusion_api/Logo.png" width="300px" height="300px"/>
+  <img src="https://github.com/Badim41/riffusion_api/blob/master/Logo.png?raw=true" width="300px" height="300px"/>
 </p>
 
 <h1 align="center">Ruffusion API</h1>
@@ -40,7 +40,7 @@ pip install git+https://github.com/Badim41/riffusion_api.git
 4. Найдите `sb-api-auth-token.0` и скопируйте его значение
 5. Передайте токен (или список токенов) в класс **RiffusionAPI**.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Badim41/riffusion_api/screenshoot.png" width="500px" height="300px"/>
+  <img src="https://github.com/Badim41/riffusion_api/blob/master/screenshoot.png?raw=true"/>
 </p>
 
 ---
