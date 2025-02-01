@@ -1,3 +1,4 @@
+import hashlib
 import json
 import mimetypes
 import os
@@ -20,6 +21,9 @@ from .s_utils import random_string
 logger = Logs(warnings=True)
 
 json_account_save = "riffusion_accounts.json"
+
+hash_audio_storage ={}
+
 
 class RiffusionAPI:
     def __init__(self, sb_api_auth_tokens_0: [list, str] = None, proxies=None):  # , refresh_accounts=True
@@ -146,7 +150,23 @@ class RiffusionAPI:
             else:
                 raise RiffusionGenerationError(f"Cant upload file: {response.status_code}, {response.text}")
 
-    def _upload_file(self, file_path, account) -> [str, str]:
+    @staticmethod
+    def _file_hash(filepath, algorithm="sha256", chunk_size=8192):
+        """Вычисляет хэш файла с использованием указанного алгоритма."""
+        hasher = hashlib.new(algorithm)
+        with open(filepath, "rb") as f:
+            for chunk in iter(lambda: f.read(chunk_size), b""):
+                hasher.update(chunk)
+        return hasher.hexdigest()
+
+    def _upload_file(self, file_path, account:RiffusionAccount) -> [str, str]:
+        audio_hash = self._file_hash(file_path)
+
+        if hash_audio_storage.get(account.login_info.user_id):
+            result = hash_audio_storage[account.login_info.user_id].get(audio_hash)
+            if result:
+                return result
+
         url = "https://wb.riffusion.com/v2/upload-audio"
 
         file_ext = os.path.splitext(file_path)[1][1:]
@@ -183,7 +203,13 @@ class RiffusionAPI:
 
         file_id = response.json()['job_id']
 
-        return file_id, self._wait_for_uplaod(account=account, file_id=file_id)
+        result = file_id, self._wait_for_uplaod(account=account, file_id=file_id)
+
+        if not hash_audio_storage.get(account.login_info.user_id):
+            hash_audio_storage[account.login_info.user_id] = {}
+        hash_audio_storage[account.login_info.user_id][audio_hash] = result
+
+        return result
 
     def _get_valid_account(self) -> RiffusionAccount:  # , force_reload=False, attempts=3, need_balance=1
         return self.new_accounts[0]
