@@ -165,6 +165,7 @@ class RiffusionAPI:
         if hash_audio_storage.get(account.login_info.user_id):
             result = hash_audio_storage[account.login_info.user_id].get(audio_hash)
             if result:
+                logger.logging(f"Use audio from hash", color=Color.GRAY)
                 return result
 
         url = "https://wb.riffusion.com/v2/upload-audio"
@@ -334,6 +335,7 @@ class RiffusionAPI:
                 if not crop_end_at:
                     audio = AudioSegment.from_file(input_file)
                     crop_end_at = len(audio) / 1000
+                    del audio
 
                 crop_end_at = min(crop_end_at, 3 * 60)  # max 3:00 extend
 
