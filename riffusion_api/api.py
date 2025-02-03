@@ -10,8 +10,9 @@ import uuid
 from json import JSONDecodeError
 from typing import List
 
-import requests
+# from memory_profiler import profile
 from pydub import AudioSegment
+from requests import Session
 
 from ._errors import RiffusionGenerationError, NoAccounts
 from ._types import RiffusionAccount, RiffusionTrack, RiffusionTransformType, RiffusionModels
@@ -29,6 +30,7 @@ class RiffusionAPI:
     def __init__(self, sb_api_auth_tokens_0: [list, str] = None, proxies=None):  # , refresh_accounts=True
         self.proxies = proxies
         self.api_email = None
+        self._session = Session()
 
         if not sb_api_auth_tokens_0:
             sb_api_auth_tokens_0 = []
@@ -48,8 +50,8 @@ class RiffusionAPI:
     # def refresh_accounts(self, time_refresh=60 * 60 * 12, start_sleep=1600):  # refresh
     #     logger.logging("not need refresh accounts")
 
-    @staticmethod
-    def create_account_database(sb_api_auth_tokens_0: List[str], proxies=None, refresh=False) -> List[RiffusionAccount]:
+    # @profile
+    def create_account_database(self, sb_api_auth_tokens_0: List[str], proxies=None, refresh=False) -> List[RiffusionAccount]:
         try:
             with open(json_account_save, "r", encoding="utf-8") as json_file:
                 data = json.load(json_file)
@@ -117,7 +119,7 @@ class RiffusionAPI:
             json.dump(new_instances, f, ensure_ascii=False, indent=4)
 
         return new_accounts
-
+    # @profile
     def _wait_for_uplaod(self, account, file_id, attempts=30):
         for i in range(attempts):
             url = f"https://wb.riffusion.com/v2/upload-audio/{file_id}"
@@ -135,7 +137,8 @@ class RiffusionAPI:
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
             }
 
-            response = requests.request("GET", url, data=payload, headers=headers, proxies=self.proxies)
+            response = self._session.request("GET", url, data=payload, headers=headers, proxies=self.proxies)
+            response.close()
 
             # print(response.json())
 
@@ -159,6 +162,7 @@ class RiffusionAPI:
                 hasher.update(chunk)
         return hasher.hexdigest()
 
+    # @profile
     def _upload_file(self, file_path, account:RiffusionAccount) -> [str, str]:
         audio_hash = self._file_hash(file_path)
 
@@ -194,7 +198,8 @@ class RiffusionAPI:
         }
 
         # Отправляем POST запрос
-        response = requests.post(url, headers=headers, data=payload, files=files, proxies=self.proxies)
+        response = self._session.post(url, headers=headers, data=payload, files=files, proxies=self.proxies)
+        response.close()
 
         # Закрываем файл после отправки запроса
         files['file'][1].close()
@@ -226,7 +231,7 @@ class RiffusionAPI:
         #     logger.logging(f"Skip {account.email}, balance: {acc_balance}")
 
         # raise NoAccounts("Cant get_valid_account")
-
+    # @profile
     def _wait_for_generate(self, account, job_id, attempts=60) -> RiffusionTrack:
         for i in range(attempts):
             url = f"https://wb.riffusion.com/v2/generate/{job_id}"
@@ -244,7 +249,8 @@ class RiffusionAPI:
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
             }
 
-            response = requests.request("GET", url, data=payload, headers=headers, proxies=self.proxies)
+            response = self._session.request("GET", url, data=payload, headers=headers, proxies=self.proxies)
+            response.close()
 
             response.raise_for_status()
 
@@ -259,7 +265,7 @@ class RiffusionAPI:
                 return RiffusionTrack.from_json(json_data)
             else:
                 raise RiffusionGenerationError(f"Error in generate: {response.text}")
-
+    # @profile
     def generate(self,
                  output_file:str = None,
                  prompt:str = None,
@@ -397,7 +403,8 @@ class RiffusionAPI:
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
         }
 
-        response = requests.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
+        response = self._session.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
+        response.close()
 
         # print(response.text)
 
@@ -419,7 +426,7 @@ if __name__ == '__main__':
     normalized_sound_prompt_strength = 0.5
     crop_end_at = 60
     inpainting_strength = 0.8
-    input_file = r"E:\Games\for suno\i want minus.wav"
+    input_file = r"E:\Games\for suno\i want minus.mp3"
     # input_file_name = os.path.basename(input_file).split(".")[0]
     track = account.generate(transform=RiffusionTransformType.cover,
                              crop_end_at=60,
