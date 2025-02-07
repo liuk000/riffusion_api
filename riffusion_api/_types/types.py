@@ -13,6 +13,7 @@ json_account_save = "riffusion_accounts.json"
 
 class RiffusionModels:
     fuzz_07 = "FUZZ-0.7"
+    fuzz_08 = "FUZZ-0.8"
 
 
 class RiffusionTransformType:
@@ -103,6 +104,7 @@ class RiffusionAccount:
     def __init__(self, sb_api_auth_token_0: str, proxies=None):
         self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
         self.proxies = proxies
+        self.timeout_till = 0
 
     # def login_google(self):
     #     code_challenge = random_string(length=36) + "-" + random_string(length=6)
@@ -246,6 +248,7 @@ class RiffusionAccount:
         obj = cls.__new__(cls)
         obj.proxies = proxies
         obj.login_info = login_info
+        obj.timeout_till = 0
         return obj
 
     def to_dict(self):

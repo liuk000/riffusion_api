@@ -42,7 +42,7 @@ class RiffusionAPI:
             raise TypeError("sb_api_auth_tokens_0 must be str, list or None")
 
         self.sb_api_auth_tokens_0 = sb_api_auth_tokens_0
-        self.new_accounts = self.create_account_database(self.sb_api_auth_tokens_0, proxies=self.proxies)
+        self.new_accounts: List[RiffusionAccount] = self.create_account_database(self.sb_api_auth_tokens_0, proxies=self.proxies)
 
     #     if refresh_accounts:
     #         threading.Thread(target=self.refresh_accounts).start()
@@ -218,19 +218,18 @@ class RiffusionAPI:
         return result
 
     def _get_valid_account(self) -> RiffusionAccount:  # , force_reload=False, attempts=3, need_balance=1
-        return self.new_accounts[0]
+        # return self.new_accounts[0]
         # if force_reload:
         #     logger.logging("Force register new account")
 
-        # for account in self.new_accounts:
-        # acc_balance = account.balance
-        # if acc_balance >= need_balance:
-        #     logger.logging(f"Selected: {account.email}, balance: {acc_balance}")
-        #     return account
-        # else:
-        #     logger.logging(f"Skip {account.email}, balance: {acc_balance}")
+        for cur_account in self.new_accounts:
+            if cur_account.timeout_till < time.time():
+                logger.logging(f"Selected: {cur_account.email}")
+                return cur_account
+            else:
+                logger.logging(f"Skip {cur_account.email} - in timeout")
 
-        # raise NoAccounts("Cant get_valid_account")
+        raise NoAccounts("Cant get_valid_account")
     # @profile
     def _wait_for_generate(self, account, job_id, attempts=60) -> RiffusionTrack:
         for i in range(attempts):
@@ -280,7 +279,8 @@ class RiffusionAPI:
                  normalized_lyrics_strength=0.5,
                  normalized_sound_prompt_strength=1.0,
                  inpainting_strength=0.5,
-                 verbose=False
+                 verbose=False,
+                 attempts=10
                  ) -> RiffusionTrack:
         """
         Генерирует музыкальный трек на основе заданных параметров.
@@ -300,6 +300,7 @@ class RiffusionAPI:
         - normalized_sound_prompt_strength (float): Нормализованная сила воздействия звукового запроса на музыку
         - inpainting_strength (float): не знаю :). Значение от 0 до 1
         - verbose (bool): "многословный", не знаю
+        - attempts (int): Количество попыток генерации
         """
         if not prompt and not input_file:
             raise RiffusionGenerationError("Должен быть указан prompt или input_audio!")
@@ -322,99 +323,106 @@ class RiffusionAPI:
             shutil.copy(input_file, output_file)  # чтобы не изменить исходный файл
             input_file = output_file
 
-        account = self._get_valid_account()
+        for i in range(attempts):
+            account = self._get_valid_account()
 
-        url = "https://wb.riffusion.com/v2/generate"
+            url = "https://wb.riffusion.com/v2/generate"
 
-        if not music_style:
-            music_style = "."
-            music_style_strength = 0
+            if not music_style:
+                music_style = "."
+                music_style_strength = 0
 
-        morph_data = None
+            morph_data = None
 
-        if input_file:
-            audio_upload_id, lyrics_transcribed = self._upload_file(file_path=input_file, account=account)
-            if not prompt:
-                prompt = lyrics_transcribed
+            if input_file:
+                audio_upload_id, lyrics_transcribed = self._upload_file(file_path=input_file, account=account)
+                if not prompt:
+                    prompt = lyrics_transcribed
 
-            if transform == RiffusionTransformType.extend:
-                if not crop_end_at:
-                    audio = AudioSegment.from_file(input_file)
-                    crop_end_at = len(audio) / 1000
-                    del audio
+                if transform == RiffusionTransformType.extend:
+                    if not crop_end_at:
+                        audio = AudioSegment.from_file(input_file)
+                        crop_end_at = len(audio) / 1000
+                        del audio
 
-                crop_end_at = min(crop_end_at, 3 * 60)  # max 3:00 extend
+                    crop_end_at = min(crop_end_at, 3 * 60)  # max 3:00 extend
 
-                morph_data = {
-                    "audio_upload_id": audio_upload_id,
-                    "transform": transform,
-                    "crop_end_at": crop_end_at,
-                    "normalized_lyrics_strength": normalized_lyrics_strength,
-                    "normalized_sound_prompt_strength": normalized_sound_prompt_strength
-                }
-            elif transform == RiffusionTransformType.cover:
-                morph_data = {
-                    "audio_upload_id": audio_upload_id,
-                    "transform": transform,
-                    "inpainting_strength": inpainting_strength,
-                    "normalized_lyrics_strength": normalized_lyrics_strength,
-                    "normalized_sound_prompt_strength": normalized_sound_prompt_strength
-                }
+                    morph_data = {
+                        "audio_upload_id": audio_upload_id,
+                        "transform": transform,
+                        "crop_end_at": crop_end_at,
+                        "normalized_lyrics_strength": normalized_lyrics_strength,
+                        "normalized_sound_prompt_strength": normalized_sound_prompt_strength
+                    }
+                elif transform == RiffusionTransformType.cover:
+                    morph_data = {
+                        "audio_upload_id": audio_upload_id,
+                        "transform": transform,
+                        "inpainting_strength": inpainting_strength,
+                        "normalized_lyrics_strength": normalized_lyrics_strength,
+                        "normalized_sound_prompt_strength": normalized_sound_prompt_strength
+                    }
 
-        payload = {
-            "riff_id": str(uuid.uuid4()),
-            "seed": seed,
-            "conditions": [
-                {
-                    "lyrics": prompt,
-                    "strength": lyrics_strength,
-                    "condition_start": 0,
-                    "condition_end": 1
-                },
-                {
-                    "prompt": music_style,
-                    "strength": music_style_strength,
-                    "condition_start": 0,
-                    "condition_end": 1
-                }
-            ],
-            "group_id": str(uuid.uuid4()),
-            "advanced_mode": True,
-            "weirdness": weirdness,
-            "model_public_name": RiffusionModels.fuzz_07,
-            "stream": False,
-            "audio_format": "aac",
-            "verbose": verbose
-        }
+            payload = {
+                "riff_id": str(uuid.uuid4()),
+                "seed": seed,
+                "conditions": [
+                    {
+                        "lyrics": prompt,
+                        "strength": lyrics_strength,
+                        "condition_start": 0,
+                        "condition_end": 1
+                    },
+                    {
+                        "prompt": music_style,
+                        "strength": music_style_strength,
+                        "condition_start": 0,
+                        "condition_end": 1
+                    }
+                ],
+                "group_id": str(uuid.uuid4()),
+                "advanced_mode": True,
+                "weirdness": weirdness,
+                "model_public_name": RiffusionModels.fuzz_08,
+                "stream": False,
+                "audio_format": "aac",
+                "verbose": verbose
+            }
 
-        if morph_data:
-            payload['morph'] = morph_data
+            if morph_data:
+                payload['morph'] = morph_data
 
-        headers = {
-            "accept": "*/*",
-            "accept-language": "ru,en;q=0.9",
-            "authorization": f"Bearer {account.auth_token}",
-            "cache-control": "no-cache",
-            "content-type": "application/json",
-            "origin": "https://www.riffusion.com",
-            "pragma": "no-cache",
-            "priority": "u=1, i",
-            "referer": "https://www.riffusion.com/",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
-        }
+            headers = {
+                "accept": "*/*",
+                "accept-language": "ru,en;q=0.9",
+                "authorization": f"Bearer {account.auth_token}",
+                "cache-control": "no-cache",
+                "content-type": "application/json",
+                "origin": "https://www.riffusion.com",
+                "pragma": "no-cache",
+                "priority": "u=1, i",
+                "referer": "https://www.riffusion.com/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
+            }
 
-        response = self._session.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
-        response.close()
+            response = self._session.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
 
-        # print(response.text)
+            if response.status_code in [429]:
+                logger.logging("Too many requests. Change account")
+                account.timeout_till = time.time() + 60*20 # 20 minutes timeout
+                continue
 
-        json_data = response.json()
-        track = self._wait_for_generate(account=account, job_id=json_data['job_id'])
-        file_ext = os.path.splitext(output_file)[1][1:]
-        track.save_audio(file_path=output_file, output_format=file_ext)
-        track.lyrics = prompt
+            response.close()
 
-        return track
+            # print(response.text)
+
+            json_data = response.json()
+            track = self._wait_for_generate(account=account, job_id=json_data['job_id'])
+            file_ext = os.path.splitext(output_file)[1][1:]
+            track.save_audio(file_path=output_file, output_format=file_ext)
+            track.lyrics = prompt
+
+            return track
 
 
 if __name__ == '__main__':
