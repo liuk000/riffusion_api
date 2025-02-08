@@ -190,7 +190,7 @@ class RiffusionAccount:
     @property
     def auth_token(self):
         if self.login_info.expires_at - 60 * 10 < time.time():  # not expired token
-            self.login_info = self.refresh()
+            self.refresh()
         return self.login_info.access_token
 
     def refresh(self):
@@ -222,10 +222,10 @@ class RiffusionAccount:
 
             self.timeout_till = time.time() + 60*60 # 1 hour timeout
             raise RiffusionRefreshError(response.text)
-
+        self.login_info = RiffusionLoginInfo(response.json())
         self.save_to_json()
 
-        return RiffusionLoginInfo(response.json())
+        return self.login_info
 
     def save_to_json(self):
         try:
