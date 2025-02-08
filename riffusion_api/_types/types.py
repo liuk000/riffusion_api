@@ -239,6 +239,8 @@ class RiffusionAccount:
         for instance in instances:
             if instance['email'] == self.email:
                 found_instance = True
+                new_instances.append(self.to_dict())
+                continue
             new_instances.append(instance)
 
         if not found_instance:
