@@ -324,105 +324,109 @@ class RiffusionAPI:
             input_file = output_file
 
         for i in range(attempts):
-            account = self._get_valid_account()
+            try:
+                account = self._get_valid_account()
 
-            url = "https://wb.riffusion.com/v2/generate"
+                url = "https://wb.riffusion.com/v2/generate"
 
-            if not music_style:
-                music_style = "."
-                music_style_strength = 0
+                if not music_style:
+                    music_style = "."
+                    music_style_strength = 0
 
-            morph_data = None
+                morph_data = None
 
-            if input_file:
-                audio_upload_id, lyrics_transcribed = self._upload_file(file_path=input_file, account=account)
-                if not prompt:
-                    prompt = lyrics_transcribed
+                if input_file:
+                    audio_upload_id, lyrics_transcribed = self._upload_file(file_path=input_file, account=account)
+                    if not prompt:
+                        prompt = lyrics_transcribed
 
-                if transform == RiffusionTransformType.extend:
-                    if not crop_end_at:
-                        audio = AudioSegment.from_file(input_file)
-                        crop_end_at = len(audio) / 1000
-                        del audio
+                    if transform == RiffusionTransformType.extend:
+                        if not crop_end_at:
+                            audio = AudioSegment.from_file(input_file)
+                            crop_end_at = len(audio) / 1000
+                            del audio
 
-                    crop_end_at = min(crop_end_at, 3 * 60)  # max 3:00 extend
+                        crop_end_at = min(crop_end_at, 3 * 60)  # max 3:00 extend
 
-                    morph_data = {
-                        "audio_upload_id": audio_upload_id,
-                        "transform": transform,
-                        "crop_end_at": crop_end_at,
-                        "normalized_lyrics_strength": normalized_lyrics_strength,
-                        "normalized_sound_prompt_strength": normalized_sound_prompt_strength
-                    }
-                elif transform == RiffusionTransformType.cover:
-                    morph_data = {
-                        "audio_upload_id": audio_upload_id,
-                        "transform": transform,
-                        "inpainting_strength": inpainting_strength,
-                        "normalized_lyrics_strength": normalized_lyrics_strength,
-                        "normalized_sound_prompt_strength": normalized_sound_prompt_strength
-                    }
+                        morph_data = {
+                            "audio_upload_id": audio_upload_id,
+                            "transform": transform,
+                            "crop_end_at": crop_end_at,
+                            "normalized_lyrics_strength": normalized_lyrics_strength,
+                            "normalized_sound_prompt_strength": normalized_sound_prompt_strength
+                        }
+                    elif transform == RiffusionTransformType.cover:
+                        morph_data = {
+                            "audio_upload_id": audio_upload_id,
+                            "transform": transform,
+                            "inpainting_strength": inpainting_strength,
+                            "normalized_lyrics_strength": normalized_lyrics_strength,
+                            "normalized_sound_prompt_strength": normalized_sound_prompt_strength
+                        }
 
-            payload = {
-                "riff_id": str(uuid.uuid4()),
-                "seed": seed,
-                "conditions": [
-                    {
-                        "lyrics": prompt,
-                        "strength": lyrics_strength,
-                        "condition_start": 0,
-                        "condition_end": 1
-                    },
-                    {
-                        "prompt": music_style,
-                        "strength": music_style_strength,
-                        "condition_start": 0,
-                        "condition_end": 1
-                    }
-                ],
-                "group_id": str(uuid.uuid4()),
-                "advanced_mode": True,
-                "weirdness": weirdness,
-                "model_public_name": RiffusionModels.fuzz_08,
-                "stream": False,
-                "audio_format": "aac",
-                "verbose": verbose
-            }
+                payload = {
+                    "riff_id": str(uuid.uuid4()),
+                    "seed": seed,
+                    "conditions": [
+                        {
+                            "lyrics": prompt,
+                            "strength": lyrics_strength,
+                            "condition_start": 0,
+                            "condition_end": 1
+                        },
+                        {
+                            "prompt": music_style,
+                            "strength": music_style_strength,
+                            "condition_start": 0,
+                            "condition_end": 1
+                        }
+                    ],
+                    "group_id": str(uuid.uuid4()),
+                    "advanced_mode": True,
+                    "weirdness": weirdness,
+                    "model_public_name": RiffusionModels.fuzz_08,
+                    "stream": False,
+                    "audio_format": "aac",
+                    "verbose": verbose
+                }
 
-            if morph_data:
-                payload['morph'] = morph_data
+                if morph_data:
+                    payload['morph'] = morph_data
 
-            headers = {
-                "accept": "*/*",
-                "accept-language": "ru,en;q=0.9",
-                "authorization": f"Bearer {account.auth_token}",
-                "cache-control": "no-cache",
-                "content-type": "application/json",
-                "origin": "https://www.riffusion.com",
-                "pragma": "no-cache",
-                "priority": "u=1, i",
-                "referer": "https://www.riffusion.com/",
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
-            }
+                headers = {
+                    "accept": "*/*",
+                    "accept-language": "ru,en;q=0.9",
+                    "authorization": f"Bearer {account.auth_token}",
+                    "cache-control": "no-cache",
+                    "content-type": "application/json",
+                    "origin": "https://www.riffusion.com",
+                    "pragma": "no-cache",
+                    "priority": "u=1, i",
+                    "referer": "https://www.riffusion.com/",
+                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 YaBrowser/24.12.0.0 Safari/537.36"
+                }
 
-            response = self._session.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
+                response = self._session.request("POST", url, json=payload, headers=headers, proxies=self.proxies)
 
-            if response.status_code in [429]:
-                logger.logging("Too many requests. Change account")
-                account.timeout_till = time.time() + 60*20 # 20 minutes timeout
-                continue
+                if response.status_code in [429]:
+                    logger.logging("Too many requests. Change account")
+                    account.timeout_till = time.time() + 60*20 # 20 minutes timeout
+                    continue
 
-            response.close()
+                response.close()
 
-            # print(response.text)
+                # print(response.text)
 
-            json_data = response.json()
-            track = self._wait_for_generate(account=account, job_id=json_data['job_id'])
-            file_ext = os.path.splitext(output_file)[1][1:]
-            track.save_audio(file_path=output_file, output_format=file_ext)
-            track.lyrics = prompt
+                json_data = response.json()
+                track = self._wait_for_generate(account=account, job_id=json_data['job_id'])
+                file_ext = os.path.splitext(output_file)[1][1:]
+                track.save_audio(file_path=output_file, output_format=file_ext)
+                track.lyrics = prompt
 
-            return track
+                return track
+            except Exception as e:
+                logger.logging(f"Error {i+1}/{attempts} while generation: {e}")
+        raise RiffusionGenerationError(f"После {attempts} попыток не удалось создать песню.")
 
 
 if __name__ == '__main__':

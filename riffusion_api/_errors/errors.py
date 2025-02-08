@@ -8,3 +8,6 @@ class NoAccounts(RiffusionApiError):
 
 class RiffusionGenerationError(RiffusionApiError):
     """Error while generate"""
+
+class RiffusionRefreshError(RiffusionApiError):
+    """Error while refresh"""
