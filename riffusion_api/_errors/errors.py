@@ -9,5 +9,8 @@ class NoAccounts(RiffusionApiError):
 class RiffusionGenerationError(RiffusionApiError):
     """Error while generate"""
 
+class RiffusionModerationError(RiffusionApiError):
+    """Error while moderate"""
+
 class RiffusionRefreshError(RiffusionApiError):
     """Error while refresh"""

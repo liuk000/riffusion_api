@@ -14,7 +14,7 @@ from typing import List
 from pydub import AudioSegment
 from requests import Session
 
-from ._errors import RiffusionGenerationError, NoAccounts
+from ._errors import RiffusionGenerationError, NoAccounts, RiffusionModerationError
 from ._types import RiffusionAccount, RiffusionTrack, RiffusionTransformType, RiffusionModels
 from .logs import Logs, Color
 from .s_utils import random_string
@@ -260,6 +260,8 @@ class RiffusionAPI:
 
             if status in ['queued', 'generating_audio']:
                 time.sleep(5)
+            if status in ['flagged']:
+                raise RiffusionModerationError(f"Error in moderate: {response.text}")
             elif status == "complete":
                 return RiffusionTrack.from_json(json_data)
             else:
