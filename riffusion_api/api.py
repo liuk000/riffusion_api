@@ -256,11 +256,11 @@ class RiffusionAPI:
             # print(response.json())
             json_data = response.json()
             status = json_data['status']
-            print(f"status: {status}")
+            # print(f"status: {status}")
 
             if status in ['queued', 'generating_audio']:
                 time.sleep(5)
-            if status in ['flagged']:
+            elif status in ['flagged']:
                 raise RiffusionModerationError(f"Error in moderate: {response.text}")
             elif status == "complete":
                 return RiffusionTrack.from_json(json_data)
@@ -427,7 +427,7 @@ class RiffusionAPI:
 
                 return track
             except Exception as e:
-                logger.logging(f"Error {i+1}/{attempts} while generation: {e}")
+                logger.logging(f"Error {i+1}/{attempts} while generation: {traceback.format_exc()}")
         raise RiffusionGenerationError(f"После {attempts} попыток не удалось создать песню.")
 
 
