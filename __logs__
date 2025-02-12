@@ -713,3 +713,32 @@ json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 17 
 (12.02.11.50)saved 1 accounts
 (12.02.11.50)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
 (12.02.11.50)Selected: lucabertiniluca@gmail.com
+(12.02.12.01)Skip refresh lucabertiniluca@gmail.com
+(12.02.12.01)Login to (1/1 account)
+(12.02.12.01)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 17 (char 16)
+
+(12.02.12.01)saved 1 accounts
+(12.02.12.01)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(12.02.12.01)Selected: lucabertiniluca@gmail.com

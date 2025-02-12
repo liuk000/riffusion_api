@@ -132,6 +132,14 @@ def download_song(audio_segment, format="mp3"):
     return filename
 
 # ------------------------------------------------------------------------------
+# Funzione per riprodurre il brano automaticamente con afplay (macOS)
+# ------------------------------------------------------------------------------
+def play_song(filename):
+    print(f"DEBUG: Avvio riproduzione del brano con afplay: {filename}")
+    # Esegue il comando afplay per riprodurre il file audio
+    os.system(f'afplay "{filename}"')
+
+# ------------------------------------------------------------------------------
 # Post-elaborazione del file audio generato
 # Carichiamo il file audio, lo adattiamo a 2 minuti e lo salviamo
 # ------------------------------------------------------------------------------
@@ -167,3 +175,6 @@ else:
 
 # Utilizza la funzione download_song per esportare il file con il nome dinamico
 downloaded_filename = download_song(song_2min, format="mp3")
+
+# Riproduci il brano automaticamente utilizzando afplay
+play_song(downloaded_filename)
