@@ -829,3 +829,886 @@ json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 17 
 (13.02.15.49)saved 1 accounts
 (13.02.15.49)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
 (13.02.15.49)Selected: lucabertiniluca@gmail.com
+(13.02.15.54)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.54)Login to (1/1 account)
+(13.02.15.54)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.54)saved 1 accounts
+(13.02.15.54)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.54)Selected: lucabertiniluca@gmail.com
+(13.02.15.55)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.55)Login to (1/1 account)
+(13.02.15.55)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.55)saved 1 accounts
+(13.02.15.55)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.55)Selected: lucabertiniluca@gmail.com
+(13.02.15.55)Too many requests. Change account
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.55)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.55)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.56)Login to (1/1 account)
+(13.02.15.56)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.56)saved 1 accounts
+(13.02.15.56)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.56)Selected: lucabertiniluca@gmail.com
+(13.02.15.56)Too many requests. Change account
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.56)Login to (1/1 account)
+(13.02.15.56)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.56)saved 1 accounts
+(13.02.15.56)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.56)Selected: lucabertiniluca@gmail.com
+(13.02.15.56)Too many requests. Change account
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.56)Login to (1/1 account)
+(13.02.15.56)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.56)saved 1 accounts
+(13.02.15.56)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.56)Selected: lucabertiniluca@gmail.com
+(13.02.15.56)Too many requests. Change account
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.56)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.56)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.57)Login to (1/1 account)
+(13.02.15.57)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.57)saved 1 accounts
+(13.02.15.57)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.57)Selected: lucabertiniluca@gmail.com
+(13.02.15.57)Too many requests. Change account
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.57)Login to (1/1 account)
+(13.02.15.57)Error in login new account: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 100, in create_account_database
+    new_account = RiffusionAccount(sb_api_auth_token_0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 109, in __init__
+    self.login_info = RiffusionLoginInfo(sb_api_auth_token_0.replace("base64-", ""))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/_types/types.py", line 91, in __init__
+    json_data = decode_and_parse_invalid_base64(data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/s_utils.py", line 31, in decode_and_parse_invalid_base64
+    parsed_data = json.loads(decoded_str)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(13.02.15.57)saved 1 accounts
+(13.02.15.57)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.57)Selected: lucabertiniluca@gmail.com
+(13.02.15.57)Too many requests. Change account
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.57)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.57)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip refresh lucabertiniluca@gmail.com
+(13.02.15.59)Login to (1/1 account)
+(13.02.15.59)Skip account as exists
+(13.02.15.59)saved 1 accounts
+(13.02.15.59)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.15.59)Selected: lucabertiniluca@gmail.com
+(13.02.15.59)Too many requests. Change account
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.15.59)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.15.59)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip refresh lucabertiniluca@gmail.com
+(13.02.16.00)Login to (1/1 account)
+(13.02.16.00)Skip account as exists
+(13.02.16.00)saved 1 accounts
+(13.02.16.00)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.16.00)Selected: lucabertiniluca@gmail.com
+(13.02.16.00)Too many requests. Change account
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 2/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 3/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 4/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 5/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 6/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 7/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 8/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 9/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.00)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.00)Error 10/10 while generation: Traceback (most recent call last):
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 330, in generate
+    account = self._get_valid_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lucabertini/Documents/GitHub/RT/riffusion_api/riffusion_api/api.py", line 232, in _get_valid_account
+    raise NoAccounts("Cant get_valid_account")
+riffusion_api._errors.errors.NoAccounts: Cant get_valid_account
+
+(13.02.16.06)Skip refresh lucabertiniluca@gmail.com
+(13.02.16.06)Login to (1/1 account)
+(13.02.16.06)Add new account: muusa.company@gmail.com
+(13.02.16.06)saved 2 accounts
+(13.02.16.06)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.16.06)Selected: lucabertiniluca@gmail.com
+(13.02.16.06)Too many requests. Change account
+(13.02.16.06)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.06)Selected: muusa.company@gmail.com
+(13.02.16.07)Skip refresh lucabertiniluca@gmail.com
+(13.02.16.07)Skip refresh muusa.company@gmail.com
+(13.02.16.07)Login to (1/1 account)
+(13.02.16.07)Skip account as exists
+(13.02.16.07)saved 2 accounts
+(13.02.16.07)File /Users/lucabertini/Documents/GitHub/RT/riffusion_api/song.mp3 exists. It will be removed
+(13.02.16.07)Selected: lucabertiniluca@gmail.com
+(13.02.16.07)Too many requests. Change account
+(13.02.16.07)Skip lucabertiniluca@gmail.com - in timeout
+(13.02.16.07)Selected: muusa.company@gmail.com

@@ -1,4 +1,4 @@
-Riffusion API 
+Riffusion API - riproduce canzone in ~ 20 secondi
 
 Prende il Lyrics.txt e lo trasforma in canzone
 Automaticamente suonata con aflìplay 
