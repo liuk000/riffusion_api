@@ -1,0 +1,8 @@
+Riffusion API 
+
+Prende il Lyrics.txt e lo trasforma in canzone
+Automaticamente suonata con aflìplay 
+
+1) Vai sulla cartella poi
+2) source venv/bin/activate
+3) python test.py
